@@ -9,7 +9,7 @@ import db from "../shared/db";
 
 async function importDataFeed(useSmallFile) {
     const smallFileUrl = "https://www.dropbox.com/s/zt02avx43j3q0wz/datafeed_218297-20-rows.csv.zip?dl=0&raw=1";
-    const dataFeedFileUrlToUse = useSmallFile ? smallFileUrl : config.get("dataFeedFileUrl");
+    const dataFeedFileUrlToUse = useSmallFile === "true" ? smallFileUrl : config.get("dataFeedFileUrl");
     console.log("Downloading the following url:", dataFeedFileUrlToUse); //eslint-disable-line no-console
 
     let lineNr = 0;
