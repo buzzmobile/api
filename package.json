@@ -27,19 +27,22 @@
     "run-sequence": "^1.2.2"
   },
   "dependencies": {
+    "axios": "^0.16.2",
     "babel-cli": "^6.24.0",
     "babel-polyfill": "^6.23.0",
     "babel-preset-env": "^1.2.2",
     "babel-register": "^6.24.0",
     "body-parser": "^1.17.1",
     "cookie-parser": "^1.4.3",
-    "ejs": "^2.5.6",
+    "event-stream": "^3.3.4",
     "express": "^4.15.2",
-    "express-ejs-layouts": "^2.3.0",
     "helmet": "^3.5.0",
     "http-errors": "^1.6.1",
+    "json-2-csv": "^2.1.1",
+    "monk": "^6.0.4",
     "morgan": "^1.8.1",
     "nconf": "^0.8.4",
-    "nocache": "^2.0.0"
+    "nocache": "^2.0.0",
+    "unzipper": "^0.8.9"
   }
 }
