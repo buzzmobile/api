@@ -1,10 +1,13 @@
 {
-  "name": "es6server",
+  "name": "buzzMobile-api",
   "version": "1.0.0",
-  "description": "a template/starter kit for best practice express es6 babel development (no webpack though)",
+  "description": "API Project for Buzz Mobile",
   "main": "index.js",
   "author": "harry patel",
   "license": "MIT",
+  "engines": {
+    "node": "8.6.0"
+  },
   "scripts": {
     "postinstall": "gulp",
     "start": "node ./src/boot.js"
