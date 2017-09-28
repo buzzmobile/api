@@ -3,12 +3,14 @@ import createError from "http-errors";
 import nocache from "nocache";
 
 import downloadFileRoutes from "./routes/importDataFeedRoute";
+import manualPagedQueryAllRoute from "./routes/manualPagedQueryAllRoute";
 import config from "../shared/config/config.js";
 
 const api = express.Router();
 
 api.use(nocache());
 api.use(downloadFileRoutes);
+api.use(manualPagedQueryAllRoute);
 api.use((req, res, next) => {
     next(createError(404));
 });
