@@ -43,13 +43,40 @@ async function importDataFeed(useSmallFile) {
 }
 
 async function saveDeal(dealCsv) {
-    const deals = await csvToJson(dealCsv.replace(/(")[?=^"]/g, "'"));
+    const cleansedCsv = dealCsv
+        .replace(/\\""/g, ' inches') //eslint-disable-line quotes
+        .replace(/''/g, ' inches') //eslint-disable-line quotes
+        .replace(/(")[?=^"]/g, "'")
+        .replace(/\0/g, "")
+        ;
+    const deals = await csvToJson(cleansedCsv);
     const deal = deals[0];
     if (deal) {
         Object.keys(deal).map(k => {
             if (k.includes("_json")) {
                 if (deal[k]){
-                    deal[k] = JSON.parse(deal[k].replace(/'/g, `\"`)); //eslint-disable-line quotes
+                    let cleanerJsonString;
+                    try {
+                        cleanerJsonString = deal[k]
+                        .replace(/,'s/g, ",'_s")
+                        .replace(/'(?=[^s])/g, `\"`) //eslint-disable-line quotes
+                        .replace(/",_s"/g, ",s")
+                        .replace(/:""/g, ":null")
+                        .replace(/""/g, '"') //eslint-disable-line quotes
+                        .replace(/you\"re/g, "you're")
+                        .replace(/don\"t/g, "don't")
+                        .replace(/you\"ll/g, "you'll")
+                        .replace(/you\"ve/g, "you've")
+                        ;
+                        deal[k] = JSON.parse(cleanerJsonString); 
+                    }
+                    catch(e) {
+                        console.error(`error parsing deal aw_deep_link:${deal.aw_deep_link} field ${k}`, e);
+                        console.error("Printing out deal[k]:");
+                        console.error(deal[k]);
+                        console.error("Printing out cleanerJsonString:");
+                        console.error(cleanerJsonString);
+                    }
                 }
             }
         });
@@ -64,5 +91,5 @@ const logProgress = lineNr => {
     }
 };
 
-
+export const saveDealAsync = saveDeal;
 export default importDataFeed;
