@@ -2,7 +2,7 @@
 /* eslint-disable no-unused-vars */
 
 const {
-    GraphQLBoolean,
+    GraphQLEnumType,
     GraphQLString,
     GraphQLInt,
     GraphQLFloat,
@@ -305,10 +305,10 @@ const TelcosTariffDetailsJsonType = new GraphQLObjectType({
             description: 'enter your description',
             type: new GraphQLNonNull(GraphQLString),
         },
-        // tariff_promo_info: {
-        //     description: 'enter your description',
-        //     type: null,
-        // }
+        tariff_promo_info: {
+            description: 'enter your description',
+            type: GraphQLString,
+        }
     },
 });
 
@@ -324,18 +324,18 @@ const Telcos_tariff_allowances_jsonMinsDetailsType = new GraphQLObjectType({
             description: 'enter your description',
             type: new GraphQLNonNull(GraphQLString),
         },
-        // _same_net_anytime: {
-        //     description: 'enter your description',
-        //     type: null,
-        // },
-        // _special_numbers_see_terms: {
-        //     description: 'enter your description',
-        //     type: null,
-        // },
-        // landline: {
-        //     description: 'enter your description',
-        //     type: null,
-        // }
+        _same_net_anytime: {
+            description: 'enter your description',
+            type: GraphQLString,
+        },
+        _special_numbers_see_terms: {
+            description: 'enter your description',
+            type: GraphQLString,
+        },
+        landline: {
+            description: 'enter your description',
+            type: GraphQLString,
+        }
     },
 });
 
@@ -347,10 +347,10 @@ const Telcos_tariff_allowances_jsonTextsDetailsType = new GraphQLObjectType({
             description: 'enter your description',
             type: new GraphQLNonNull(GraphQLString),
         },
-        // _same_net_anytime: {
-        //     description: 'enter your description',
-        //     type: null,
-        // }
+        _same_net_anytime: {
+            description: 'enter your description',
+            type: GraphQLString,
+        }
     },
 });
 
@@ -358,10 +358,10 @@ const Telcos_tariff_allowances_jsonTextsDetailsType = new GraphQLObjectType({
 const Telcos_tariff_allowances_jsonDataDetailsType = new GraphQLObjectType({
     name: 'data_details',
     fields: {
-        // wifi_mb: {
-        //     description: 'enter your description',
-        //     type: null,
-        // },
+        wifi_mb: {
+            description: 'enter your description',
+            type: GraphQLString,
+        },
         cellular_mb: {
             description: 'enter your description',
             type: new GraphQLNonNull(GraphQLString),
@@ -403,14 +403,14 @@ const TelcosTariffOutOfPlanChargesJsonType = new GraphQLObjectType({
             description: 'enter your description',
             type: new GraphQLNonNull(GraphQLString),
         },
-        // pence_per_mb: {
-        //     description: 'enter your description',
-        //     type: null,
-        // },
-        // data_charge_text: {
-        //     description: 'enter your description',
-        //     type: null,
-        // },
+        pence_per_mb: {
+            description: 'enter your description',
+            type: GraphQLString,
+        },
+        data_charge_text: {
+            description: 'enter your description',
+            type: GraphQLString,
+        },
         pence_per_voicemail_min: {
             description: 'enter your description',
             type: new GraphQLNonNull(GraphQLString),
@@ -468,14 +468,14 @@ const TelcosDealCostJsonType = new GraphQLObjectType({
             description: 'enter your description',
             type: new GraphQLNonNull(GraphQLString),
         },
-        // upfront_previous_inc_vat: {
-        //     description: 'enter your description',
-        //     type: null,
-        // },
-        // upfront_previous_exc_vat: {
-        //     description: 'enter your description',
-        //     type: null,
-        // },
+        upfront_previous_inc_vat: {
+            description: 'enter your description',
+            type: GraphQLString,
+        },
+        upfront_previous_exc_vat: {
+            description: 'enter your description',
+            type: GraphQLString,
+        },
         monthly_total_inc_vat: {
             description: 'enter your description',
             type: new GraphQLNonNull(GraphQLString),
@@ -484,46 +484,46 @@ const TelcosDealCostJsonType = new GraphQLObjectType({
             description: 'enter your description',
             type: new GraphQLNonNull(GraphQLString),
         },
-        // monthly_total_previous_inc_vat: {
-        //     description: 'enter your description',
-        //     type: null,
-        // },
-        // monthly_total_previous_exc_vat: {
-        //     description: 'enter your description',
-        //     type: null,
-        // },
-        // monthly_device_inc_vat: {
-        //     description: 'enter your description',
-        //     type: null,
-        // },
-        // monthly_device_exc_vat: {
-        //     description: 'enter your description',
-        //     type: null,
-        // },
-        // monthly_device_term_months: {
-        //     description: 'enter your description',
-        //     type: null,
-        // },
-        // monthly_device_final_term_inc_vat: {
-        //     description: 'enter your description',
-        //     type: null,
-        // },
-        // monthly_device_final_term_exc_vat: {
-        //     description: 'enter your description',
-        //     type: null,
-        // },
-        // monthly_device_final_term_months: {
-        //     description: 'enter your description',
-        //     type: null,
-        // },
-        // monthly_contract_inc_vat: {
-        //     description: 'enter your description',
-        //     type: null,
-        // },
-        // monthly_contract_exc_vat: {
-        //     description: 'enter your description',
-        //     type: null,
-        // },
+        monthly_total_previous_inc_vat: {
+            description: 'enter your description',
+            type: GraphQLString,
+        },
+        monthly_total_previous_exc_vat: {
+            description: 'enter your description',
+            type: GraphQLString,
+        },
+        monthly_device_inc_vat: {
+            description: 'enter your description',
+            type: GraphQLString,
+        },
+        monthly_device_exc_vat: {
+            description: 'enter your description',
+            type: GraphQLString,
+        },
+        monthly_device_term_months: {
+            description: 'enter your description',
+            type: GraphQLString,
+        },
+        monthly_device_final_term_inc_vat: {
+            description: 'enter your description',
+            type: GraphQLString,
+        },
+        monthly_device_final_term_exc_vat: {
+            description: 'enter your description',
+            type: GraphQLString,
+        },
+        monthly_device_final_term_months: {
+            description: 'enter your description',
+            type: GraphQLString,
+        },
+        monthly_contract_inc_vat: {
+            description: 'enter your description',
+            type: GraphQLString,
+        },
+        monthly_contract_exc_vat: {
+            description: 'enter your description',
+            type: GraphQLString,
+        },
         monthly_contract_term_months: {
             description: 'enter your description',
             type: new GraphQLNonNull(GraphQLString),
@@ -610,10 +610,6 @@ const DealType = new GraphQLObjectType({
             description: 'enter your description',
             type: new GraphQLNonNull(GraphQLString),
         },
-        // delivery_cost: {
-        //     description: 'enter your description',
-        //     type: null,
-        // },
         merchant_deep_link: {
             description: 'enter your description',
             type: new GraphQLNonNull(GraphQLString),
@@ -650,10 +646,6 @@ const DealType = new GraphQLObjectType({
             description: 'enter your description',
             type: new GraphQLNonNull(GraphQLString),
         },
-        // Telcos_gift: {
-        //     description: 'enter your description',
-        //     type: null,
-        // },
         Telcos_inc_minutes: {
             description: 'enter your description',
             type: new GraphQLNonNull(GraphQLString),
@@ -742,18 +734,11 @@ const DealType = new GraphQLObjectType({
             description: 'enter your description',
             type: new GraphQLNonNull(TelcosTariffOutOfPlanChargesJsonType),
         },
-        // Telcos_deal_tags_json: {
-        //     description: 'enter your description',
-        //     type: null,
-        // },
         Telcos_deal_type_json: {
             description: 'enter your description',
             type: new GraphQLNonNull(TelcosDealTypeJsonType),
         },
-        // Telcos_deal_promo_info: {
-        //     description: 'enter your description',
-        //     type: null,
-        // },
+
         Telcos_deal_retailer_json: {
             description: 'enter your description',
             type: new GraphQLNonNull(TelcosDealRetailerJsonType),
@@ -762,30 +747,6 @@ const DealType = new GraphQLObjectType({
             description: 'enter your description',
             type: new GraphQLNonNull(TelcosDealCostJsonType),
         },
-        // Telcos_deal_discounts_json: {
-        //     description: 'enter your description',
-        //     type: null,
-        // },
-        // Telcos_deal_cashback_json: {
-        //     description: 'enter your description',
-        //     type: null,
-        // },
-        // Telcos_deal_legal_info: {
-        //     description: 'enter your description',
-        //     type: null,
-        // },
-        // Telcos_subscription_name: {
-        //     description: 'enter your description',
-        //     type: null,
-        // },
-        // Telcos_subscription_price_effective: {
-        //     description: 'enter your description',
-        //     type: new GraphQLNonNull(GraphQLString),
-        // },
-        // Telcos_subscription_renewal: {
-        //     description: 'enter your description',
-        //     type: null,
-        // }
     })
 });
 
