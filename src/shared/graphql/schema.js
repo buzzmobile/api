@@ -696,23 +696,23 @@ const DealType = new GraphQLObjectType({
         },
         product_id: {
             description: 'enter your description',
-            type: new GraphQLNonNull(GraphQLString),
+            type: GraphQLString,
         },
         product_brand: {
             description: 'enter your description',
-            type: new GraphQLNonNull(GraphQLString),
+            type: GraphQLString,
         },
         product_brand_id: {
             description: 'enter your description',
-            type: new GraphQLNonNull(GraphQLString),
+            type: GraphQLString,
         },
         product_type: {
             description: 'enter your description',
-            type: new GraphQLNonNull(GraphQLString),
+            type: GraphQLString,
         },
         product_type_id: {
             description: 'enter your description',
-            type: new GraphQLNonNull(GraphQLString),
+            type: GraphQLString,
         },
         Telcos_device_product_json: {
             description: 'enter your description',
@@ -732,15 +732,15 @@ const DealType = new GraphQLObjectType({
         },
         product_edition_id: {
             description: 'enter your description',
-            type: new GraphQLNonNull(GraphQLString),
+            type: GraphQLString,
         },
         product_edition_name: {
             description: 'enter your description',
-            type: new GraphQLNonNull(GraphQLString),
+            type: GraphQLString,
         },
         reseller_product_edition_id: {
             description: 'enter your description',
-            type: new GraphQLNonNull(GraphQLString),
+            type: GraphQLString,
         },
         Telcos_device_product_edition_json: {
             description: 'enter your description',
@@ -756,11 +756,11 @@ const DealType = new GraphQLObjectType({
         },
         primary_thumb: {
             description: 'enter your description',
-            type: new GraphQLNonNull(GraphQLString),
+            type: GraphQLString,
         },
         primary_large: {
             description: 'enter your description',
-            type: new GraphQLNonNull(GraphQLString),
+            type: GraphQLString,
         },
         Telcos_device_images_json: {
             description: 'enter your description',
@@ -768,15 +768,15 @@ const DealType = new GraphQLObjectType({
         },
         colour: {
             description: 'enter your description',
-            type: new GraphQLNonNull(GraphQLString),
+            type: GraphQLString,
         },
         colour_group: {
             description: 'enter your description',
-            type: new GraphQLNonNull(GraphQLString),
+            type: GraphQLString,
         },
         max_data_standard: {
             description: 'enter your description',
-            type: new GraphQLNonNull(GraphQLString),
+            type: GraphQLString,
         },
         condition: {
             description: 'enter your description',
