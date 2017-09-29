@@ -1179,7 +1179,12 @@ const Schema = new GraphQLSchema({
         fields: () => ({
             allDeals: {
                 description: "all deals",
-                type: new GraphQLList(DealType)
+                type: new GraphQLList(DealType),
+                args: {
+                    page: {
+                        type: GraphQLInt
+                    }
+                }
             }
         })
     })

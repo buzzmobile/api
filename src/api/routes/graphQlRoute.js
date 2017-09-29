@@ -7,8 +7,8 @@ import db from "../../shared/db";
 const app = express.Router();
 
 const root = { 
-    allDeals: async (obj, { page = 1 }) => {
-        const pageSize = 3;
+    allDeals: async ({ page = 1 }) => {
+        const pageSize = 10;
         const dealsOut = await db.deals.find({}, { skip: pageSize * (page - 1), limit: pageSize });
         return dealsOut;
     }
