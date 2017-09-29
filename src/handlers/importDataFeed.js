@@ -61,8 +61,9 @@ const logProgress = lineNr => {
 
 const cleanCsv = dealCsv => {
     return dealCsv
-        .replace(/\\""/g, ' inches') //eslint-disable-line quotes
-        .replace(/''/g, ' inches') //eslint-disable-line quotes
+        .replace(/\\""/g, " inches")
+        .replace(/''/g, " inches")
+        .replace(/\""(\dg)""/g, '""_$1""') //eslint-disable-line quotes
         .replace(/(")[?=^"]/g, "'")
         .replace(/\0/g, "")
         ;
