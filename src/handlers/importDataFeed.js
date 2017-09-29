@@ -24,7 +24,7 @@ async function importDataFeed(useSmallFile) {
         .pipe(es.mapSync(line => {
             const isheaderRow = lineNr === 0 && line.includes("aw_deep_link");
             if (isheaderRow) {
-                header = line;
+                header = line.replace(/Telcos:/g, "Telcos_");
                 dealCsv = header;
             } else {
                 dealCsv += "\n" + line;
