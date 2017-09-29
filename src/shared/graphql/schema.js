@@ -684,7 +684,7 @@ const DealType = new GraphQLObjectType({
         },
         Telcos_special_offer: {
             description: 'enter your description',
-            type: new GraphQLNonNull(GraphQLString),
+            type: GraphQLString,
         },
         Telcos_network: {
             description: 'enter your description',
