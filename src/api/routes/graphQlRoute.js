@@ -6,10 +6,18 @@ import db from "../../shared/db";
 
 const app = express.Router();
 
+const root = { 
+    allDeals: async (obj, { page = 1 }) => {
+        const pageSize = 3;
+        const dealsOut = await db.deals.find({}, { skip: pageSize * (page - 1), limit: pageSize });
+        return dealsOut;
+    }
+};
+
 app.use("/graphql", graphqlHTTP({
     schema: schema,
     graphiql: true,
-    context: { deals: db.deals }
+    rootValue: root
 }));
 
 export default app;
