@@ -2,15 +2,17 @@ import express from "express";
 import createError from "http-errors";
 import nocache from "nocache";
 
+import config from "../shared/config/config.js";
 import downloadFileRoutes from "./routes/importDataFeedRoute";
 import manualPagedQueryAllRoute from "./routes/manualPagedQueryAllRoute";
-import config from "../shared/config/config.js";
+import graphQlRoute from "./routes/graphQlRoute";
 
 const api = express.Router();
 
 api.use(nocache());
 api.use(downloadFileRoutes);
 api.use(manualPagedQueryAllRoute);
+api.use(graphQlRoute);
 api.use((req, res, next) => {
     next(createError(404));
 });
