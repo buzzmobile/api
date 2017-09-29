@@ -6,11 +6,15 @@ import db from "../../shared/db";
 
 const app = express.Router();
 
+async function find(page, qry={} ){
+    const pageSize = 10;
+    return db.deals.find(qry, { skip: pageSize * (page - 1), limit: pageSize });    
+}
+
 const root = { 
-    allDeals: async ({ page = 1 }) => {
-        const pageSize = 10;
-        const dealsOut = await db.deals.find({}, { skip: pageSize * (page - 1), limit: pageSize });
-        return dealsOut;
+    allDeals: async ({ page = 1 }) => find(page),
+    allDealsByMerchantCategory: async ({ page = 1, merchantCategory }) => {
+        return find(page, { merchant_category: merchantCategory });
     }
 };
 

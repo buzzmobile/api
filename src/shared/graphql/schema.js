@@ -547,6 +547,33 @@ const TelcosDealCostJsonType = new GraphQLObjectType({
     },
 });
 
+const MerchantCategoryEnum = new GraphQLEnumType({
+    name: 'MerchantCategoryEnum',
+    values: {
+        MobilePhone: { value: "Mobile Phone" },
+        SIMCard: { value: "SIM Card" },
+        Tablet: { value: "Tablet" },
+        USBModem: { value: "USB Modem" },
+        Laptop: { value: "Laptop" },
+        MobileWiFi: { value: "Mobile Wi-Fi" },
+        GameConsole: { value: "Game Console" },
+        Smartwatch: { value: "Smartwatch" },
+        Television: { value: "Television" },
+        Wearable: { value: "Wearable" },
+        Case: { value: "Case" },
+        Headphones: { value: "Headphones" },
+        Software: { value: "Software" },
+        Camera: { value: "Camera" },
+        MediaStreamersPlayers: { value: "Media Streamers & Players" },
+        ChargingDocksStands: { value: "Charging, Docks & Stands" },
+        PersonalGrooming: { value: "Personal Grooming" },
+        InputDevices: { value: "Input Devices" },
+        ToysGadgets: { value: "Toys & Gadgets" },
+        Speakers: { value: "Speakers" },
+        VRHeadsets: { value: "VR Headsets" },
+    }
+});
+
 const DealType = new GraphQLObjectType({
     name: 'DealType',
     fields: () => ({
@@ -576,7 +603,7 @@ const DealType = new GraphQLObjectType({
         },
         merchant_category: {
             description: 'enter your description',
-            type: new GraphQLNonNull(GraphQLString),
+            type: new GraphQLNonNull(MerchantCategoryEnum),
         },
         search_price: {
             description: 'enter your description',
@@ -760,6 +787,18 @@ const Schema = new GraphQLSchema({
                 args: {
                     page: {
                         type: GraphQLInt
+                    }
+                }
+            },
+            allDealsByMerchantCategory: {
+                description: "all deals by merchant category",
+                type: new GraphQLList(DealType),
+                args: {
+                    page: {
+                        type: GraphQLInt
+                    },
+                    merchantCategory: {
+                        type: MerchantCategoryEnum
                     }
                 }
             }
