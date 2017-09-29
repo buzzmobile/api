@@ -550,10 +550,6 @@ const TelcosDealCostJsonType = new GraphQLObjectType({
 const DealType = new GraphQLObjectType({
     name: 'DealType',
     fields: () => ({
-        _id: {
-            description: 'enter your description',
-            type: new GraphQLNonNull(GraphQLString),
-        },
         aw_deep_link: {
             description: 'enter your description',
             type: new GraphQLNonNull(GraphQLString),
