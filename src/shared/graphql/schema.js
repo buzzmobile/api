@@ -690,53 +690,13 @@ const DealType = new GraphQLObjectType({
             description: 'enter your description',
             type: new GraphQLNonNull(GraphQLString),
         },
-        product_id: {
-            description: 'enter your description',
-            type: GraphQLString,
-        },
-        product_brand: {
-            description: 'enter your description',
-            type: GraphQLString,
-        },
-        product_brand_id: {
-            description: 'enter your description',
-            type: GraphQLString,
-        },
-        product_type: {
-            description: 'enter your description',
-            type: GraphQLString,
-        },
-        product_type_id: {
-            description: 'enter your description',
-            type: GraphQLString,
-        },
         Telcos_device_product_json: {
             description: 'enter your description',
             type: new GraphQLNonNull(TelcosDeviceProductJsonType),
         },
-        product_version_id: {
-            description: 'enter your description',
-            type: new GraphQLNonNull(GraphQLString),
-        },
-        product_version_name: {
-            description: 'enter your description',
-            type: new GraphQLNonNull(GraphQLString),
-        },
         Telcos_device_product_version_json: {
             description: 'enter your description',
             type: new GraphQLNonNull(TelcosDeviceProductVersionJsonType),
-        },
-        product_edition_id: {
-            description: 'enter your description',
-            type: GraphQLString,
-        },
-        product_edition_name: {
-            description: 'enter your description',
-            type: GraphQLString,
-        },
-        reseller_product_edition_id: {
-            description: 'enter your description',
-            type: GraphQLString,
         },
         Telcos_device_product_edition_json: {
             description: 'enter your description',
@@ -750,285 +710,33 @@ const DealType = new GraphQLObjectType({
             description: 'enter your description',
             type: new GraphQLNonNull(GraphQLString),
         },
-        primary_thumb: {
-            description: 'enter your description',
-            type: GraphQLString,
-        },
-        primary_large: {
-            description: 'enter your description',
-            type: GraphQLString,
-        },
         Telcos_device_images_json: {
             description: 'enter your description',
             type: new GraphQLNonNull(TelcosDeviceImagesJsonType),
-        },
-        colour: {
-            description: 'enter your description',
-            type: GraphQLString,
-        },
-        colour_group: {
-            description: 'enter your description',
-            type: GraphQLString,
-        },
-        max_data_standard: {
-            description: 'enter your description',
-            type: GraphQLString,
-        },
-        condition: {
-            description: 'enter your description',
-            type: new GraphQLNonNull(GraphQLString),
-        },
-        condition_friendly: {
-            description: 'enter your description',
-            type: new GraphQLNonNull(GraphQLString),
-        },
-        _sim_type: {
-            description: 'enter your description',
-            type: new GraphQLNonNull(GraphQLString),
-        },
-        capacity: {
-            description: 'enter your description',
-            type: new GraphQLNonNull(GraphQLString),
-        },
-        os: {
-            description: 'enter your description',
-            type: new GraphQLNonNull(GraphQLString),
-        },
-        megapixels: {
-            description: 'enter your description',
-            type: new GraphQLNonNull(GraphQLString),
         },
         Telcos_device_features_json: {
             description: 'enter your description',
             type: new GraphQLNonNull(TelcosDeviceFeaturesJsonType),
         },
-        display_resolution: {
-            description: 'enter your description',
-            type: new GraphQLNonNull(GraphQLString),
-        },
-        display_size: {
-            description: 'enter your description',
-            type: new GraphQLNonNull(GraphQLString),
-        },
-        display_type: {
-            description: 'enter your description',
-            type: new GraphQLNonNull(GraphQLString),
-        },
-        primary_camera_flash: {
-            description: 'enter your description',
-            type: new GraphQLNonNull(GraphQLString),
-        },
-        primary_camera_resolution: {
-            description: 'enter your description',
-            type: new GraphQLNonNull(GraphQLString),
-        },
-        internal_memory: {
-            description: 'enter your description',
-            type: new GraphQLNonNull(GraphQLString),
-        },
-        memory_card_slot: {
-            description: 'enter your description',
-            type: new GraphQLNonNull(GraphQLString),
-        },
-        processor: {
-            description: 'enter your description',
-            type: new GraphQLNonNull(GraphQLString),
-        },
-        _2g: {
-            description: 'enter your description',
-            type: new GraphQLNonNull(GraphQLString),
-        },
-        _3g: {
-            description: 'enter your description',
-            type: new GraphQLNonNull(GraphQLString),
-        },
-        _4g: {
-            description: 'enter your description',
-            type: new GraphQLNonNull(GraphQLString),
-        },
-        bluetooth: {
-            description: 'enter your description',
-            type: new GraphQLNonNull(GraphQLString),
-        },
-        gps: {
-            description: 'enter your description',
-            type: new GraphQLNonNull(GraphQLString),
-        },
-        wifi: {
-            description: 'enter your description',
-            type: new GraphQLNonNull(GraphQLString),
-        },
-        talk_time: {
-            description: 'enter your description',
-            type: new GraphQLNonNull(GraphQLString),
-        },
-        _secondary_camera: {
-            description: 'enter your description',
-            type: new GraphQLNonNull(GraphQLString),
-        },
-        weight_grams: {
-            description: 'enter your description',
-            type: new GraphQLNonNull(GraphQLString),
-        },
-        dimensions: {
-            description: 'enter your description',
-            type: new GraphQLNonNull(GraphQLString),
-        },
-        chipset: {
-            description: 'enter your description',
-            type: new GraphQLNonNull(GraphQLString),
-        },
-        battery_type: {
-            description: 'enter your description',
-            type: new GraphQLNonNull(GraphQLString),
-        },
-        ip_rating: {
-            description: 'enter your description',
-            type: new GraphQLNonNull(GraphQLString),
-        },
         Telcos_device_specifications_json: {
             description: 'enter your description',
             type: new GraphQLNonNull(TelcosDeviceSpecificationsJsonType),
-        },
-        name: {
-            description: 'enter your description',
-            type: new GraphQLNonNull(GraphQLString),
-        },
-        company_id: {
-            description: 'enter your description',
-            type: new GraphQLNonNull(GraphQLString),
-        },
-        logo_url: {
-            description: 'enter your description',
-            type: new GraphQLNonNull(GraphQLString),
-        },
-        coverage_url: {
-            description: 'enter your description',
-            type: new GraphQLNonNull(GraphQLString),
-        },
-        terms_url: {
-            description: 'enter your description',
-            type: new GraphQLNonNull(GraphQLString),
         },
         Telcos_network_details_json: {
             description: 'enter your description',
             type: new GraphQLNonNull(TelcosNetworkDetailsJsonType),
         },
-        tariff_group_id: {
-            description: 'enter your description',
-            type: new GraphQLNonNull(GraphQLString),
-        },
-        tariff_group_description: {
-            description: 'enter your description',
-            type: new GraphQLNonNull(GraphQLString),
-        },
-        tariff_group_promo_info: {
-            description: 'enter your description',
-            type: new GraphQLNonNull(GraphQLString),
-        },
         Telcos_tariff_group_details_json: {
             description: 'enter your description',
             type: new GraphQLNonNull(TelcosTariffGroupDetailsJsonType),
         },
-        tariff_id: {
-            description: 'enter your description',
-            type: new GraphQLNonNull(GraphQLString),
-        },
-        tariff_name: {
-            description: 'enter your description',
-            type: new GraphQLNonNull(GraphQLString),
-        },
-        tariff_type_id: {
-            description: 'enter your description',
-            type: new GraphQLNonNull(GraphQLString),
-        },
-        tariff_type: {
-            description: 'enter your description',
-            type: new GraphQLNonNull(GraphQLString),
-        },
-        tariff_term: {
-            description: 'enter your description',
-            type: new GraphQLNonNull(GraphQLString),
-        },
-        tariff_term_friendly: {
-            description: 'enter your description',
-            type: new GraphQLNonNull(GraphQLString),
-        },
-        // tariff_promo_info: {
-        //     description: 'enter your description',
-        //     type: null,
-        // },
         Telcos_tariff_details_json: {
             description: 'enter your description',
             type: new GraphQLNonNull(TelcosTariffDetailsJsonType),
         },
-        cross_net_anytime: {
-            description: 'enter your description',
-            type: new GraphQLNonNull(GraphQLString),
-        },
-        cross_net_anytime_qualifier: {
-            description: 'enter your description',
-            type: new GraphQLNonNull(GraphQLString),
-        },
-        // _same_net_anytime: {
-        //     description: 'enter your description',
-        //     type: null,
-        // },
-        // _special_numbers_see_terms: {
-        //     description: 'enter your description',
-        //     type: null,
-        // },
-        // landline: {
-        //     description: 'enter your description',
-        //     type: null,
-        // },
-        mins_details: {
-            description: 'enter your description',
-            type: new GraphQLNonNull(Telcos_tariff_allowances_jsonMinsDetailsType),
-        },
-        texts_details: {
-            description: 'enter your description',
-            type: new GraphQLNonNull(Telcos_tariff_allowances_jsonTextsDetailsType),
-        },
-        // wifi_mb: {
-        //     description: 'enter your description',
-        //     type: null,
-        // },
-        cellular_mb: {
-            description: 'enter your description',
-            type: new GraphQLNonNull(GraphQLString),
-        },
-        cellular_speed: {
-            description: 'enter your description',
-            type: new GraphQLNonNull(GraphQLString),
-        },
-        data_details: {
-            description: 'enter your description',
-            type: new GraphQLNonNull(Telcos_tariff_allowances_jsonDataDetailsType),
-        },
         Telcos_tariff_allowances_json: {
             description: 'enter your description',
             type: new GraphQLNonNull(TelcosTariffAllowancesJsonType),
-        },
-        pence_per_cross_net_min: {
-            description: 'enter your description',
-            type: new GraphQLNonNull(GraphQLString),
-        },
-        pence_per_cross_net_text: {
-            description: 'enter your description',
-            type: new GraphQLNonNull(GraphQLString),
-        },
-        // pence_per_mb: {
-        //     description: 'enter your description',
-        //     type: null,
-        // },
-        // data_charge_text: {
-        //     description: 'enter your description',
-        //     type: null,
-        // },
-        pence_per_voicemail_min: {
-            description: 'enter your description',
-            type: new GraphQLNonNull(GraphQLString),
         },
         Telcos_tariff_out_of_plan_charges_json: {
             description: 'enter your description',
@@ -1038,14 +746,6 @@ const DealType = new GraphQLObjectType({
         //     description: 'enter your description',
         //     type: null,
         // },
-        deal_type_id: {
-            description: 'enter your description',
-            type: new GraphQLNonNull(GraphQLString),
-        },
-        deal_type_name: {
-            description: 'enter your description',
-            type: new GraphQLNonNull(GraphQLString),
-        },
         Telcos_deal_type_json: {
             description: 'enter your description',
             type: new GraphQLNonNull(TelcosDealTypeJsonType),
@@ -1057,90 +757,6 @@ const DealType = new GraphQLObjectType({
         Telcos_deal_retailer_json: {
             description: 'enter your description',
             type: new GraphQLNonNull(TelcosDealRetailerJsonType),
-        },
-        upfront_inc_vat: {
-            description: 'enter your description',
-            type: new GraphQLNonNull(GraphQLString),
-        },
-        upfront_exc_vat: {
-            description: 'enter your description',
-            type: new GraphQLNonNull(GraphQLString),
-        },
-        // upfront_previous_inc_vat: {
-        //     description: 'enter your description',
-        //     type: null,
-        // },
-        // upfront_previous_exc_vat: {
-        //     description: 'enter your description',
-        //     type: null,
-        // },
-        monthly_total_inc_vat: {
-            description: 'enter your description',
-            type: new GraphQLNonNull(GraphQLString),
-        },
-        monthly_total_exc_vat: {
-            description: 'enter your description',
-            type: new GraphQLNonNull(GraphQLString),
-        },
-        // monthly_total_previous_inc_vat: {
-        //     description: 'enter your description',
-        //     type: null,
-        // },
-        // monthly_total_previous_exc_vat: {
-        //     description: 'enter your description',
-        //     type: null,
-        // },
-        // monthly_device_inc_vat: {
-        //     description: 'enter your description',
-        //     type: null,
-        // },
-        // monthly_device_exc_vat: {
-        //     description: 'enter your description',
-        //     type: null,
-        // },
-        // monthly_device_term_months: {
-        //     description: 'enter your description',
-        //     type: null,
-        // },
-        // monthly_device_final_term_inc_vat: {
-        //     description: 'enter your description',
-        //     type: null,
-        // },
-        // monthly_device_final_term_exc_vat: {
-        //     description: 'enter your description',
-        //     type: null,
-        // },
-        // monthly_device_final_term_months: {
-        //     description: 'enter your description',
-        //     type: null,
-        // },
-        // monthly_contract_inc_vat: {
-        //     description: 'enter your description',
-        //     type: null,
-        // },
-        // monthly_contract_exc_vat: {
-        //     description: 'enter your description',
-        //     type: null,
-        // },
-        monthly_contract_term_months: {
-            description: 'enter your description',
-            type: new GraphQLNonNull(GraphQLString),
-        },
-        ecpm_inc_vat: {
-            description: 'enter your description',
-            type: new GraphQLNonNull(GraphQLString),
-        },
-        ecpm_exc_vat: {
-            description: 'enter your description',
-            type: new GraphQLNonNull(GraphQLString),
-        },
-        tco_inc_vat: {
-            description: 'enter your description',
-            type: new GraphQLNonNull(GraphQLString),
-        },
-        tco_exc_vat: {
-            description: 'enter your description',
-            type: new GraphQLNonNull(GraphQLString),
         },
         Telcos_deal_cost_json: {
             description: 'enter your description',
