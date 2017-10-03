@@ -64,6 +64,7 @@ const cleanCsv = dealCsv => {
         .replace(/\\""/g, " inches")
         .replace(/''/g, " inches")
         .replace(/\""(\dg)""/g, '""_$1""') //eslint-disable-line quotes
+        .replace(/""(\d+\.\d+)""/g, "$1")
         .replace(/(")[?=^"]/g, "'")
         .replace(/\0/g, "")
         ;

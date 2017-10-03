@@ -462,43 +462,43 @@ const TelcosDealCostJsonType = new GraphQLObjectType({
     fields: {
         upfront_inc_vat: {
             description: "The deal's total upfront cost including VAT",
-            type: new GraphQLNonNull(GraphQLString),
+            type: new GraphQLNonNull(GraphQLFloat),
         },
         upfront_exc_vat: {
             description: "The deal's total upfront cost excluding VAT (for business-customer deals)",
-            type: new GraphQLNonNull(GraphQLString),
+            type: new GraphQLNonNull(GraphQLFloat),
         },
         upfront_previous_inc_vat: {
             description: "Where this deal has previously been sold at another price, that price will be listed here",
-            type: GraphQLString,
+            type: GraphQLFloat,
         },
         upfront_previous_exc_vat: {
             description: "Where this deal has previously been sold at another price, that price will be listed here excluding VAT (for business-customer deals)",
-            type: GraphQLString,
+            type: GraphQLFloat,
         },
         monthly_total_inc_vat: {
             description: "The deal's monthly total cost (note this field will contain the sum of the phone monthly cost and contract monthly cost where these are expressed separately, as is the case with O2 Refresh products)",
-            type: new GraphQLNonNull(GraphQLString),
+            type: new GraphQLNonNull(GraphQLFloat),
         },
         monthly_total_exc_vat: {
             description: "As above, but excluding VAT (for business-customer deals)",
-            type: new GraphQLNonNull(GraphQLString),
+            type: new GraphQLNonNull(GraphQLFloat),
         },
         monthly_total_previous_inc_vat: {
             description: "Where this deal has previously been sold at another monthly price, that price will be listed here",
-            type: GraphQLString,
+            type: GraphQLFloat,
         },
         monthly_total_previous_exc_vat: {
             description: "Where this deal has previously been sold at another monthly price, that price will be listed here excluding VAT (for business-customer deals)",
-            type: GraphQLString,
+            type: GraphQLFloat,
         },
         monthly_device_inc_vat: {
             description: "the monthly price of the device portion of the monthly cost. This will be populated only where the device is being sold separately from the tariff (e.g. Giffgaff handsets, Tesco Mobile, O2 Refresh)",
-            type: GraphQLString,
+            type: GraphQLFloat,
         },
         monthly_device_exc_vat: {
             description: "the monthly price of the device portion of the monthly cost. This will be populated only where the device is being sold separately from the tariff (e.g. Giffgaff handsets, Tesco Mobile, O2 Refresh) excluding VAT (for business-customer deals)",
-            type: GraphQLString,
+            type: GraphQLFloat,
         },
         monthly_device_term_months: {
             description: "in most cases the contract term for the device will be the same as for the contract, but not in all cases. In the case of giffgaff it is possible to purchase the handset over a different term from the contract (all giffgaff deals are in fact Pay-as-you-go). In all cases, this field should be checked to ensure the customer is given the correct information.",
@@ -506,11 +506,11 @@ const TelcosDealCostJsonType = new GraphQLObjectType({
         },
         monthly_device_final_term_inc_vat: {
             description: "the monthly price of the final term of the device finance contract. Currently only used by Sky Mobile, and tends to be a reduced line rental for the final few months of the device contract",
-            type: GraphQLString,
+            type: GraphQLFloat,
         },
         monthly_device_final_term_exc_vat: {
             description: "the monthly price of the final term of the device finance contract. Currently only used by Sky Mobile, and tends to be a reduced line rental for the final few months of the device contract excluding VAT (for business-customer deals)",
-            type: GraphQLString,
+            type: GraphQLFloat,
         },
         monthly_device_final_term_months: {
             description: "this is the number of months that the 'final term' lasts. If populated, this 'final term' will often feature a reduced line rental or some other changes to the way the device is financed",
@@ -518,11 +518,11 @@ const TelcosDealCostJsonType = new GraphQLObjectType({
         },
         monthly_contract_inc_vat: {
             description: "the monthly price of the tariff portion of the monthly cost. This will be populated only where the device is being sold separately from the tariff",
-            type: GraphQLString,
+            type: GraphQLFloat,
         },
         monthly_contract_exc_vat: {
             description: "the monthly price of the tariff portion of the monthly cost. This will be populated only where the device is being sold separately from the tariff excluding VAT (for business-customer deals)",
-            type: GraphQLString,
+            type: GraphQLFloat,
         },
         monthly_contract_term_months: {
             description: "the contract term for the tariff",
@@ -530,19 +530,19 @@ const TelcosDealCostJsonType = new GraphQLObjectType({
         },
         ecpm_inc_vat: {
             description: "effective cost per month - the effective total monthly cost after taking into account all payments over the course of the contract and any upfront cost. Note that discounts and free gifts are not included in this calculation",
-            type: new GraphQLNonNull(GraphQLString),
+            type: new GraphQLNonNull(GraphQLFloat),
         },
         ecpm_exc_vat: {
             description: "effective cost per month - the effective total monthly cost after taking into account all payments over the course of the contract and any upfront cost. Note that discounts and free gifts are not included in this calculation excluding VAT (for business-customer deals)",
-            type: new GraphQLNonNull(GraphQLString),
+            type: new GraphQLNonNull(GraphQLFloat),
         },
         tco_inc_vat: {
             description: "total cost of ownership - the total cost over the course of the contract including any upfront cost. Note that discounts and free gifts are not included in this calculation",
-            type: new GraphQLNonNull(GraphQLString),
+            type: new GraphQLNonNull(GraphQLFloat),
         },
         tco_exc_vat: {
             description: "total cost of ownership - the total cost over the course of the contract including any upfront cost. Note that discounts and free gifts are not included in this calculation excluding VAT (for business-customer deals)",
-            type: new GraphQLNonNull(GraphQLString),
+            type: new GraphQLNonNull(GraphQLFloat),
         }
     },
 });
