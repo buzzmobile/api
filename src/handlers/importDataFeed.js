@@ -24,7 +24,7 @@ async function importDataFeed(useSmallFile) {
         .pipe(es.mapSync(line => {
             const isheaderRow = lineNr === 0 && line.includes("aw_deep_link");
             if (isheaderRow) {
-                header = line;
+                header = line.replace(/Telcos:/g, "Telcos_");
                 dealCsv = header;
             } else {
                 dealCsv += "\n" + line;
@@ -43,43 +43,11 @@ async function importDataFeed(useSmallFile) {
 }
 
 async function saveDeal(dealCsv) {
-    const cleansedCsv = dealCsv
-        .replace(/\\""/g, ' inches') //eslint-disable-line quotes
-        .replace(/''/g, ' inches') //eslint-disable-line quotes
-        .replace(/(")[?=^"]/g, "'")
-        .replace(/\0/g, "")
-        ;
+    const cleansedCsv = cleanCsv(dealCsv);
     const deals = await csvToJson(cleansedCsv);
     const deal = deals[0];
     if (deal) {
-        Object.keys(deal).map(k => {
-            if (k.includes("_json")) {
-                if (deal[k]){
-                    let cleanerJsonString;
-                    try {
-                        cleanerJsonString = deal[k]
-                        .replace(/,'s/g, ",'_s")
-                        .replace(/'(?=[^s])/g, `\"`) //eslint-disable-line quotes
-                        .replace(/",_s"/g, ",s")
-                        .replace(/:""/g, ":null")
-                        .replace(/""/g, '"') //eslint-disable-line quotes
-                        .replace(/you\"re/g, "you're")
-                        .replace(/don\"t/g, "don't")
-                        .replace(/you\"ll/g, "you'll")
-                        .replace(/you\"ve/g, "you've")
-                        ;
-                        deal[k] = JSON.parse(cleanerJsonString); 
-                    }
-                    catch(e) {
-                        console.error(`error parsing deal aw_deep_link:${deal.aw_deep_link} field ${k}`, e);
-                        console.error("Printing out deal[k]:");
-                        console.error(deal[k]);
-                        console.error("Printing out cleanerJsonString:");
-                        console.error(cleanerJsonString);
-                    }
-                }
-            }
-        });
+        unwrapEmbeddedJsonFields(deal); 
         return db.deals.update({ aw_deep_link: deal.aw_deep_link }, deal, { upsert: true });
     }
     return Promise.resolve();
@@ -89,6 +57,48 @@ const logProgress = lineNr => {
     if (lineNr % 10000 === 0) {
         console.log("processing line:", lineNr); 
     }
+};
+
+const cleanCsv = dealCsv => {
+    return dealCsv
+        .replace(/\\""/g, " inches")
+        .replace(/''/g, " inches")
+        .replace(/\""(\dg)""/g, '""_$1""') //eslint-disable-line quotes
+        .replace(/""(\d+\.\d+)""/g, "$1")
+        .replace(/(")[?=^"]/g, "'")
+        .replace(/\0/g, "")
+        ;
+};
+
+const unwrapEmbeddedJsonFields = deal => {
+    Object.keys(deal).map(k => {
+        if (k.includes("_json")) {
+            if (deal[k]){
+                let cleanerJsonString;
+                try {
+                    cleanerJsonString = deal[k]
+                    .replace(/,'s/g, ",'_s")
+                    .replace(/'(?=[^s])/g, `\"`) //eslint-disable-line quotes
+                    .replace(/",_s"/g, ",s")
+                    .replace(/:""/g, ":null")
+                    .replace(/""/g, '"') //eslint-disable-line quotes
+                    .replace(/you\"re/g, "you're")
+                    .replace(/don\"t/g, "don't")
+                    .replace(/you\"ll/g, "you'll")
+                    .replace(/you\"ve/g, "you've")
+                    ;
+                    deal[k] = JSON.parse(cleanerJsonString); 
+                }
+                catch(e) {
+                    console.error(`error parsing deal aw_deep_link:${deal.aw_deep_link} field ${k}`, e);
+                    console.error("Printing out deal[k]:");
+                    console.error(deal[k]);
+                    console.error("Printing out cleanerJsonString:");
+                    console.error(cleanerJsonString);
+                }
+            }
+        }
+    });
 };
 
 export const saveDealAsync = saveDeal;
