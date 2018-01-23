@@ -22,7 +22,7 @@ const root = {
     allDealsFiltered: async({ page = 1, merchantCategory = "Any", operatingSystem = "Any" }) => {
         const qry = {};
         addFilter(qry, merchantCategory, "merchant_category");
-        addFilter(qry, operatingSystem, "Telcos_device_features_json.os");
+        addFilter(qry, operatingSystem, "Telcos_operating_system");
         return find(page, qry);
     }
 };
