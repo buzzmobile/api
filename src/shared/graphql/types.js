@@ -2,6 +2,7 @@ import {
     GraphQLString,
     GraphQLFloat,
     GraphQLObjectType,
+    GraphQLInt,
     GraphQLNonNull
 } from "graphql";
 
@@ -628,11 +629,11 @@ export const DealType = new GraphQLObjectType({
         },
         Telcos_initial_cost: {
             description: "self explanatory (hopefully!)",
-            type: new GraphQLNonNull(GraphQLString),
+            type: new GraphQLNonNull(GraphQLFloat),
         },
         Telcos_month_cost: {
             description: "self explanatory (hopefully!)",
-            type: new GraphQLNonNull(GraphQLString),
+            type: new GraphQLNonNull(GraphQLFloat),
         },
         Telcos_inc_minutes: {
             description: "self explanatory (hopefully!)",
@@ -640,7 +641,7 @@ export const DealType = new GraphQLObjectType({
         },
         Telcos_inc_data: {
             description: "self explanatory (hopefully!)",
-            type: new GraphQLNonNull(GraphQLString),
+            type: new GraphQLNonNull(GraphQLInt),
         },
         Telcos_connectivity: {
             description: "self explanatory (hopefully!)",
@@ -726,7 +727,6 @@ export const DealType = new GraphQLObjectType({
             description: "self explanatory (hopefully!)",
             type: new GraphQLNonNull(TelcosDealTypeJsonType),
         },
-
         Telcos_deal_retailer_json: {
             description: "self explanatory (hopefully!)",
             type: new GraphQLNonNull(TelcosDealRetailerJsonType),
