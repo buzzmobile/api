@@ -10,7 +10,8 @@
   },
   "scripts": {
     "postinstall": "gulp build",
-    "start": "node ./src/boot.js"
+    "start": "node ./src/boot.js",
+    "dev": "gulp"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.1",
