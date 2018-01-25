@@ -2,11 +2,10 @@ import {
     GraphQLString,
     GraphQLFloat,
     GraphQLObjectType,
-    GraphQLInt,
     GraphQLNonNull
 } from "graphql";
 
-import { MerchantCategoryEnum, OperatingSystemEnum } from "./enums";
+import { MerchantCategoryEnum, OperatingSystemEnum, ContractTypeEnum } from "./enums";
 
 export const TelcosDeviceProductJsonType = new GraphQLObjectType({
     name: "Telcos_device_product_json",
@@ -621,7 +620,7 @@ export const DealType = new GraphQLObjectType({
         },
         Telcos_contract_type: {
             description: "self explanatory (hopefully!)",
-            type: new GraphQLNonNull(GraphQLString),
+            type: ContractTypeEnum,
         },
         Telcos_term: {
             description: "self explanatory (hopefully!)",
@@ -641,7 +640,7 @@ export const DealType = new GraphQLObjectType({
         },
         Telcos_inc_data: {
             description: "self explanatory (hopefully!)",
-            type: new GraphQLNonNull(GraphQLInt),
+            type: new GraphQLNonNull(GraphQLString),
         },
         Telcos_connectivity: {
             description: "self explanatory (hopefully!)",

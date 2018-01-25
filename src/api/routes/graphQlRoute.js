@@ -6,9 +6,9 @@ import db from "../../shared/db";
 
 const app = express.Router();
 
-async function find(page, qry = {}) {
+async function find(page, qry = {}, sort = {}) {
     const pageSize = 10;
-    return db.deals.find(qry, { skip: pageSize * (page - 1), limit: pageSize });
+    return db.deals.find(qry, { skip: pageSize * (page - 1), limit: pageSize, sort });
 }
 
 const addFilter = (qry, filterValue, filterAttribute) => {
@@ -19,13 +19,36 @@ const addFilter = (qry, filterValue, filterAttribute) => {
 
 const root = {
     allDeals: async({ page = 1 }) => find(page),
-    allDealsFiltered: async({ page = 1, merchantCategory = "Any", operatingSystem = "Any" }) => {
+    allDealsFiltered: async({ 
+        page = 1, 
+        merchantCategory = "Any", 
+        operatingSystem = "Any", 
+        contractType = "Any",
+        productVersionName = "Any",
+        onlyIncludeUnlimitedMinutesAndTexts = true,
+        sortBy = "TCO-Asc"
+    }) => {
         const qry = {};
         addFilter(qry, merchantCategory, "merchant_category");
         addFilter(qry, operatingSystem, "Telcos_operating_system");
-        return find(page, qry);
+        addFilter(qry, contractType, "Telcos_contract_type");
+        addFilter(qry, productVersionName, "Telcos_device_product_version_json.product_version_name");
+        if (onlyIncludeUnlimitedMinutesAndTexts) {
+            addFilter(qry, "UNLIMITED", "Telcos_inc_minutes");
+            addFilter(qry, "UNLIMITED", "Telcos_inc_texts");
+        }
+        return find(page, qry, sortBy);
     }
 };
+
+/*
+
+SORT
+{
+ 'Telcos_deal_cost_json.tco_inc_vat': 1
+}
+
+*/
 
 app.use("/graphql", graphqlHTTP({
     schema: schema,

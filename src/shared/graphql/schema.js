@@ -2,11 +2,12 @@ import {
     GraphQLInt,
     GraphQLObjectType,
     GraphQLSchema,
-    GraphQLList
+    GraphQLList,
+    GraphQLBoolean
 } from "graphql";
 
 import { DealType } from "./types";
-import { MerchantCategoryEnum, OperatingSystemEnum } from "./enums";
+import { MerchantCategoryEnum, OperatingSystemEnum, ContractTypeEnum, ProductVersionNameEnum, SortByEnum } from "./enums";
 
 const Schema = new GraphQLSchema({
     query: new GraphQLObjectType({
@@ -33,6 +34,18 @@ const Schema = new GraphQLSchema({
                     },
                     operatingSystem: {
                         type: OperatingSystemEnum
+                    },
+                    contractType: {
+                        type: ContractTypeEnum
+                    },
+                    productVersionName: {
+                        type: ProductVersionNameEnum
+                    },
+                    onlyIncludeUnlimitedMinutesAndTexts: {
+                        type: GraphQLBoolean
+                    },
+                    sortBy: {
+                        type: SortByEnum
                     }
                 }
             }
