@@ -7,7 +7,7 @@ import {
 } from "graphql";
 
 import { DealType } from "./types";
-import { MerchantCategoryEnum, OperatingSystemEnum, ContractTypeEnum, ProductVersionNameEnum, SortByEnum } from "./enums";
+import { MerchantCategoryEnum, OperatingSystemEnum, ContractTypeEnum, ProductVersionNameEnum, ManufacturerEnum, SortByEnum } from "./enums";
 
 const Schema = new GraphQLSchema({
     query: new GraphQLObjectType({
@@ -40,6 +40,9 @@ const Schema = new GraphQLSchema({
                     },
                     productVersionName: {
                         type: ProductVersionNameEnum
+                    },
+                    manufacturer: {
+                        type: ManufacturerEnum
                     },
                     onlyIncludeUnlimitedMinutesAndTexts: {
                         type: GraphQLBoolean

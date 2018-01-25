@@ -78,7 +78,65 @@ export const ProductVersionNameEnum = new GraphQLEnumType({
         "iPhone5": { value:      "5" },
         "iPhone4": { value:      "4" },
         "iPhone4s": { value:      "4s" },
+        "S6":{ value: "S6" },
+        "A3_2017":{ value: "A3 2017" },
+        "S7Edge":{ value: "S7 Edge" },
+        "A5_2017":{ value: "A5 2017" },
+        "J5_2016":{ value: "J5 (2016)" },
+        "J3_2016":{ value: "J3 (2016)" },
+        "S7":{ value: "S7" },
+        "S8Plus":{ value: "S8 Plus" },
+        "S5Mini":{ value: "S5 Mini" },
+        "S8":{ value: "S8" },
+        "J5":{ value: "J5" },
+        "A3_2016":{ value: "A3 2016" },
+        "Note8":{ value: "Note 8" },
+        "S6Edge":{ value: "S6 Edge" },
+        "S6EdgePlus":{ value: "S6 Edge Plus" },
+        "J5_2017":{ value: "J5 (2017)" },
+        "S3Mini":{ value: "S3 Mini" },
+        "A5_2016":{ value: "A5 2016" },
+        "J3_2017":{ value: "J3 (2017)" },
+        "Xcover4DualSIM" :{ value: "Xcover 4 Dual SIM" },
         Any: { value: "Any" }
+    }
+});
+
+// db.runCommand ( { distinct: "deals", key: "Telcos_device_product_json.product_brand", query: { } } )
+export const ManufacturerEnum = new GraphQLEnumType({
+    name: "ManufacturerEnum",
+    description: "Possible values for Manufacturer. Can set to Any if using in a query and the field should not be filtered by",
+    values: {
+        "Microsoft": { value: "Microsoft" },
+        "HTC": { value: "HTC" },
+        "Doro": { value: "Doro" },
+        "Apple": { value: "Apple" },
+        "Sony": { value: "Sony" },
+        "CAT": { value: "CAT®" },
+        "Alcatel": { value: "Alcatel" },
+        "Samsung": { value: "Samsung" },
+        "DeWalt": { value: "DeWalt" },
+        "Nokia": { value: "Nokia" },
+        "BlackBerry": { value: "BlackBerry" },
+        "LG": { value: "LG" },
+        "ZTE": { value: "ZTE" },
+        "Moto": { value: "Moto" },
+        "Archos": { value: "Archos" },
+        "SIM": { value: "SIM Card" },
+        "Huawei": { value: "Huawei" },
+        "Lenovo": { value: "Lenovo" },
+        "EE": { value: "EE" },
+        "MobiWire": { value: "MobiWire" },
+        "Netgear": { value: "Netgear" },
+        "Google": { value: "Google" },
+        "OnePlus": { value: "OnePlus" },
+        "BQ": { value: "BQ" },
+        "Fitbit": { value: "Fitbit" },
+        "Pebble": { value: "Pebble" },
+        "Bragi": { value: "Bragi" },
+        "Vodafone": { value: "Vodafone" },
+        "Honor": { value: "Honor" },
+        "Monqi": { value: "Monqi" }
     }
 });
 
@@ -90,6 +148,5 @@ export const SortByEnum = new GraphQLEnumType({
         "TCO_DESC": { value: { "Telcos_deal_cost_json.tco_inc_vat": -1 }, description: "Sort by Total Cost of Ownership Expensive First" }
     }
 });
-
 
 

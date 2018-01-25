@@ -26,6 +26,7 @@ const root = {
         contractType = "Any",
         productVersionName = "Any",
         onlyIncludeUnlimitedMinutesAndTexts = true,
+        manufacturer = "Any",
         sortBy = "TCO-Asc"
     }) => {
         const qry = {};
@@ -33,6 +34,7 @@ const root = {
         addFilter(qry, operatingSystem, "Telcos_operating_system");
         addFilter(qry, contractType, "Telcos_contract_type");
         addFilter(qry, productVersionName, "Telcos_device_product_version_json.product_version_name");
+        addFilter(qry, manufacturer, "Telcos_device_product_json.product_brand");
         if (onlyIncludeUnlimitedMinutesAndTexts) {
             addFilter(qry, "UNLIMITED", "Telcos_inc_minutes");
             addFilter(qry, "UNLIMITED", "Telcos_inc_texts");
@@ -40,15 +42,6 @@ const root = {
         return find(page, qry, sortBy);
     }
 };
-
-/*
-
-SORT
-{
- 'Telcos_deal_cost_json.tco_inc_vat': 1
-}
-
-*/
 
 app.use("/graphql", graphqlHTTP({
     schema: schema,
