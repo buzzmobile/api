@@ -67,12 +67,17 @@ export const ProductVersionNameFilterEnum = new GraphQLEnumType({
         iPhoneX: { value: { "Telcos_device_product_version_json.product_version_name": "X" } },
         iPhone8Plus: { value: { "Telcos_device_product_version_json.product_version_name":  "8 Plus" } },
         iPhone8: { value: { "Telcos_device_product_version_json.product_version_name": "8" } },
+        iPhone8Any: { value: { 
+            "$or" : [
+                { "Telcos_device_product_version_json.product_version_name": "8 Plus" }, 
+                { "Telcos_device_product_version_json.product_version_name": "8" }
+            ]     
+        } },
         iPhone7Plus: { value: { "Telcos_device_product_version_json.product_version_name":  "7 Plus" } },
         iPhone7: { value: { "Telcos_device_product_version_json.product_version_name": "7" } },
         iPhoneSE: { value: { "Telcos_device_product_version_json.product_version_name":"SE" } },
         iPhone6sPlus: { value: { "Telcos_device_product_version_json.product_version_name":  "6s Plus" } },
         iPhone6s: { value: { "Telcos_device_product_version_json.product_version_name":"6s" } },
-        iPhone6Plus: { value: { "Telcos_device_product_version_json.product_version_name":  "6 Plus" } },
         iPhone6: { value: { "Telcos_device_product_version_json.product_version_name": "6" } },
         iPhone5s: { value: { "Telcos_device_product_version_json.product_version_name":"5s" } },
         iPhone5c: { value: { "Telcos_device_product_version_json.product_version_name":"5c" } },
