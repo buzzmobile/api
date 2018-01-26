@@ -7,7 +7,7 @@ import {
 } from "graphql";
 
 import { DealType } from "./types";
-import { MerchantCategoryEnum, OperatingSystemEnum, ContractTypeEnum, ProductVersionNameEnum, ManufacturerEnum, SortByEnum } from "./enums";
+import { MerchantCategoryFilterEnum, OperatingSystemFilterEnum, ContractTypeFilterEnum, ProductVersionNameFilterEnum, ManufacturerFilterEnum, SortByEnum } from "./enums";
 
 const Schema = new GraphQLSchema({
     query: new GraphQLObjectType({
@@ -30,19 +30,19 @@ const Schema = new GraphQLSchema({
                         type: GraphQLInt
                     },
                     merchantCategory: {
-                        type: MerchantCategoryEnum
+                        type: MerchantCategoryFilterEnum
                     },
                     operatingSystem: {
-                        type: OperatingSystemEnum
+                        type: OperatingSystemFilterEnum,
                     },
                     contractType: {
-                        type: ContractTypeEnum
+                        type: ContractTypeFilterEnum
                     },
                     productVersionName: {
-                        type: ProductVersionNameEnum
+                        type: ProductVersionNameFilterEnum
                     },
                     manufacturer: {
-                        type: ManufacturerEnum
+                        type: ManufacturerFilterEnum
                     },
                     onlyIncludeUnlimitedMinutesAndTexts: {
                         type: GraphQLBoolean

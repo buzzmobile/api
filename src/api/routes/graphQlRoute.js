@@ -11,33 +11,31 @@ async function find(page, qry = {}, sort = {}) {
     return db.deals.find(qry, { skip: pageSize * (page - 1), limit: pageSize, sort });
 }
 
-const addFilter = (qry, filterValue, filterAttribute) => {
-    if (filterValue !== "Any") {
-        qry[filterAttribute] = filterValue;
-    }
-};
+// const log = console.log; //eslint-disable-line no-console
+
+const addFilter = (qry, filterQry) => Object.assign(qry, filterQry);
 
 const root = {
     allDeals: async({ page = 1 }) => find(page),
     allDealsFiltered: async({ 
         page = 1, 
-        merchantCategory = "Any", 
-        operatingSystem = "Any", 
-        contractType = "Any",
-        productVersionName = "Any",
-        onlyIncludeUnlimitedMinutesAndTexts = true,
-        manufacturer = "Any",
+        merchantCategory, 
+        operatingSystem, 
+        contractType,
+        productVersionName,
+        manufacturer,
+        onlyIncludeUnlimitedMinutesAndTexts = false,
         sortBy = "TCO-Asc"
     }) => {
         const qry = {};
-        addFilter(qry, merchantCategory, "merchant_category");
-        addFilter(qry, operatingSystem, "Telcos_operating_system");
-        addFilter(qry, contractType, "Telcos_contract_type");
-        addFilter(qry, productVersionName, "Telcos_device_product_version_json.product_version_name");
-        addFilter(qry, manufacturer, "Telcos_device_product_json.product_brand");
+        addFilter(qry, merchantCategory);
+        addFilter(qry, operatingSystem);
+        addFilter(qry, contractType);
+        addFilter(qry, manufacturer);
+        addFilter(qry, productVersionName);
         if (onlyIncludeUnlimitedMinutesAndTexts) {
-            addFilter(qry, "UNLIMITED", "Telcos_inc_minutes");
-            addFilter(qry, "UNLIMITED", "Telcos_inc_texts");
+            addFilter(qry, { Telcos_inc_texts: "UNLIMITED" });
+            addFilter(qry, { Telcos_inc_minutes: "UNLIMITED" });
         }
         return find(page, qry, sortBy);
     }

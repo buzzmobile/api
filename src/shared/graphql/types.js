@@ -634,19 +634,19 @@ export const DealType = new GraphQLObjectType({
         },
         Telcos_inc_minutes: {
             description: "self explanatory (hopefully!)",
-            type: new GraphQLNonNull(GraphQLString),
+            type: GraphQLString,
         },
         Telcos_inc_data: {
             description: "self explanatory (hopefully!)",
-            type: new GraphQLNonNull(GraphQLString),
+            type: GraphQLString,
         },
         Telcos_connectivity: {
             description: "self explanatory (hopefully!)",
-            type: new GraphQLNonNull(GraphQLString),
+            type: GraphQLString,
         },
         Telcos_inc_texts: {
             description: "self explanatory (hopefully!)",
-            type: new GraphQLNonNull(GraphQLString),
+            type: GraphQLString,
         },
         Telcos_tariff: {
             description: "self explanatory (hopefully!)",
