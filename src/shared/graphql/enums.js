@@ -145,6 +145,24 @@ export const ManufacturerFilterEnum = new GraphQLEnumType({
     }
 });
 
+export const TalkMinutesFilterEnum = new GraphQLEnumType({
+    name: "MobileDataFilterEnum",
+    description: "Possible values for filtering by Talk Minutes. To ignore this filter, set to 'Any' or don't specify it",
+    values: {
+        Any: { value: { } },
+        Unlimited: { value: {  Telcos_inc_minutes :  "UNLIMITED" } }
+    }
+});
+
+export const NumberOfTextsFilterEnum = new GraphQLEnumType({
+    name: "NumberOfTextsFilterEnum",
+    description: "Possible values for filtering by Texts. To ignore this filter, set to 'Any' or don't specify it",
+    values: {
+        Any: { value: { } },
+        Unlimited: { value: {  Telcos_inc_texts :  "UNLIMITED" } }
+    }
+});
+
 export const SortByEnum = new GraphQLEnumType({
     name: "SortByEnum",
     description: "Possible values for Sorting",

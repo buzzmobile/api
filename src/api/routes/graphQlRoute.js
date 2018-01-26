@@ -24,7 +24,8 @@ const root = {
         contractType,
         productVersionName,
         manufacturer,
-        onlyIncludeUnlimitedMinutesAndTexts = false,
+        talkMinutes,
+        numberOfTexts,
         sortBy = "TCO-Asc"
     }) => {
         const qry = {};
@@ -33,10 +34,8 @@ const root = {
         addFilter(qry, contractType);
         addFilter(qry, manufacturer);
         addFilter(qry, productVersionName);
-        if (onlyIncludeUnlimitedMinutesAndTexts) {
-            addFilter(qry, { Telcos_inc_texts: "UNLIMITED" });
-            addFilter(qry, { Telcos_inc_minutes: "UNLIMITED" });
-        }
+        addFilter(qry, talkMinutes);
+        addFilter(qry, numberOfTexts);
         return find(page, qry, sortBy);
     }
 };
