@@ -163,6 +163,24 @@ export const NumberOfTextsFilterEnum = new GraphQLEnumType({
     }
 });
 
+// db.runCommand ( { distinct: "deals", key: "Telcos_network", query: { } } )
+export const NetworkFilterEnum = new GraphQLEnumType({
+    name: "NetworkFilterEnum",
+    description: "Possible values for filtering by Network. To ignore this filter, set to 'Any' or don't specify it",
+    values: {
+        Any: { value: { } },
+        O2: { value: { Telcos_network: "O2" } },
+        NoNetwork: { value: { Telcos_network: "No Network" } },
+        VirginMobile: { value: { Telcos_network: "Virgin Mobile" } },
+        EE: { value: { Telcos_network: "EE" } },
+        Vodafone: { value: { Telcos_network: "Vodafone" } },
+        iD: { value: { Telcos_network: "iD" } },
+        Giffgaff: { value: { Telcos_network: "giffgaff" } },
+        Three: { value: { Telcos_network: "Three" } },
+        BT: { value: { Telcos_network: "BT" } }
+    }
+});
+
 export const SortByEnum = new GraphQLEnumType({
     name: "SortByEnum",
     description: "Possible values for Sorting",
@@ -171,5 +189,3 @@ export const SortByEnum = new GraphQLEnumType({
         "TCO_DESC": { value: { "Telcos_deal_cost_json.tco_inc_vat": -1 }, description: "Sort by Total Cost of Ownership Expensive First" }
     }
 });
-
-
