@@ -1,6 +1,7 @@
 import express from "express";
 import createError from "http-errors";
 import nocache from "nocache";
+import cors from "cors";
 
 import config from "../shared/config/config.js";
 import downloadFileRoutes from "./routes/importDataFeedRoute";
@@ -10,6 +11,7 @@ import graphQlRoute from "./routes/graphQlRoute";
 const api = express.Router();
 
 api.use(nocache());
+api.use(cors());
 api.use(downloadFileRoutes);
 api.use(manualPagedQueryAllRoute);
 api.use(graphQlRoute);
