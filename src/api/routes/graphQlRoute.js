@@ -8,7 +8,7 @@ const app = express.Router();
 
 async function find(page, qry = {}, sort = {}) {
     log(qry);
-    const pageSize = 5;
+    const pageSize = 10;
     return db.deals.find(qry, { skip: pageSize * (page - 1), limit: pageSize, sort });
 }
 
