@@ -1,5 +1,5 @@
 {
-  "name": "buzzMobile-api",
+  "name": "buzzmobile-api",
   "version": "1.0.0",
   "description": "API Project for Buzz Mobile",
   "main": "./src/web/server/boot.js",
