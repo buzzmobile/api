@@ -21,15 +21,12 @@ api.use((req, res, next) => {
 
 api.use((err, req, res, next) => {
     const severe = !err.status || err.status === 500;
-
     if (severe) {
         console.error(err, req); //eslint-disable-line no-console
     }
-
     if (res.headersSent) {
         return next(err);
     }
-
     if (severe) {
         if (config.get("buildMode") === "development") {
             res.status(500).json({ message: err.message, stack: err.stack });

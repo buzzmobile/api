@@ -3544,6 +3544,12 @@ monk-middleware-cast-ids@^0.2.1:
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/monk-middleware-cast-ids/-/monk-middleware-cast-ids-0.2.1.tgz#40c40e5a6cb33ccedc289220943275ee8861c529"
 
+monk-middleware-debug@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/monk-middleware-debug/-/monk-middleware-debug-0.2.0.tgz#3f9757122f5751a6c40e510a4c6b1df174b5af21"
+  dependencies:
+    debug "*"
+
 monk-middleware-fields@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/monk-middleware-fields/-/monk-middleware-fields-0.2.0.tgz#ff637af35f5948879ccb2be15a91360911bea6c1"

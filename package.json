@@ -27,6 +27,7 @@
     "gulp-nsp": "^2.4.2",
     "gulp-spawn-mocha": "^3.1.0",
     "gulp-watch": "^4.3.11",
+    "monk-middleware-debug": "^0.2.0",
     "require-dir": "^0.3.1",
     "run-sequence": "^1.2.2"
   },
