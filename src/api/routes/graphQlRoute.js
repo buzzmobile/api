@@ -7,7 +7,7 @@ import db from "../../shared/db";
 const app = express.Router();
 
 async function find(page, qry = {}, sort = {}) {
-    log(qry);
+    log({ qry, sort });
     const pageSize = 10;
     return db.deals.find(qry, { skip: pageSize * (page - 1), limit: pageSize, sort });
 }
