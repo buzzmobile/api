@@ -86,7 +86,7 @@ export const TelcosDeviceFeaturesJsonType = new GraphQLObjectType({
     fields: {
         colour: {
             description: "self explanatory (hopefully!)",
-            type: new GraphQLNonNull(GraphQLString),
+            type: GraphQLString,
         },
         colour_group: {
             description: "self explanatory (hopefully!)",
