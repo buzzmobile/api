@@ -28,6 +28,7 @@ const root = {
         talkMinutes,
         numberOfTexts,
         network,
+        merchant,
         sortBy = "TCO-Asc"
     }) => {
         const qry = {};
@@ -39,6 +40,7 @@ const root = {
         addFilter(qry, talkMinutes);
         addFilter(qry, numberOfTexts);
         addFilter(qry, network);
+        addFilter(qry, merchant);
         return find(page, qry, sortBy);
     }
 };

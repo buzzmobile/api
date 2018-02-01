@@ -181,6 +181,24 @@ export const NetworkFilterEnum = new GraphQLEnumType({
     }
 });
 
+// db.runCommand ( { distinct: "deals", key: "merchant_name", query: { } } )
+export const MerchantFilterEnum = new GraphQLEnumType({
+    name: "MerchantFilterEnum",
+    description: "Possible values for filtering by Network. To ignore this filter, set to 'Any' or don't specify it",
+    values: {
+        Any: { value: { } },
+        O2: { value: { merchant_name: "O2 Mobiles" } },
+        BuyMobilesNet: { value: { merchant_name: "buymobiles.net" } },
+        MobilesCoUk: { value: { merchant_name: "Mobiles.co.uk" } },
+        EE: { value: { merchant_name: "EE Mobile" } },
+        e2save: { value: { merchant_name: "e2save" } },
+        e2saveNot: { value: { merchant_name: { $ne: "e2save" } } },
+        iD: { value: { merchant_name: "ID Mobile" } },
+        Giffgaff: { value: { merchant_name: "giffgaff" } },
+        Vodafone: { value: { merchant_name: "Vodafone Ltd" } }
+    }
+});
+
 export const SortByEnum = new GraphQLEnumType({
     name: "SortByEnum",
     description: "Possible values for Sorting",
