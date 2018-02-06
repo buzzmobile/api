@@ -1,5 +1,8 @@
 import express from "express";
 import graphqlHTTP from "express-graphql";
+import Hashids from "hashids";
+
+const hashids = new Hashids();
 
 import schema from "../../shared/graphql/schema";
 import db from "../../shared/db";
@@ -9,7 +12,12 @@ const app = express.Router();
 async function find(page, qry = {}, sort = {}) {
     log({ qry, sort });
     const pageSize = 10;
-    return db.deals.find(qry, { skip: pageSize * (page - 1), limit: pageSize, sort });
+    const dbDeals = await db.deals.find(qry, { skip: pageSize * (page - 1), limit: pageSize, sort });
+    return addExternalId(dbDeals);
+}
+
+async function addExternalId(dbDeals) {
+    return dbDeals.map(d => Object.assign({ id: hashids.encodeHex(d._id) }, d));
 }
 
 const log = console.log; //eslint-disable-line no-console

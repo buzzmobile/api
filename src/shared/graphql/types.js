@@ -536,6 +536,10 @@ export const TelcosDealCostJsonType = new GraphQLObjectType({
 export const DealType = new GraphQLObjectType({
     name: "DealType",
     fields: () => ({
+        id: {
+            description: "Id",
+            type: new GraphQLNonNull(GraphQLString),
+        },
         aw_deep_link: {
             description: "self explanatory (hopefully!)",
             type: new GraphQLNonNull(GraphQLString),
