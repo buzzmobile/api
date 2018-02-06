@@ -184,7 +184,7 @@ export const NetworkFilterEnum = new GraphQLEnumType({
 // db.runCommand ( { distinct: "deals", key: "merchant_name", query: { } } )
 export const MerchantFilterEnum = new GraphQLEnumType({
     name: "MerchantFilterEnum",
-    description: "Possible values for filtering by Network. To ignore this filter, set to 'Any' or don't specify it",
+    description: "Possible values for filtering by Merchant. To ignore this filter, set to 'Any' or don't specify it",
     values: {
         Any: { value: { } },
         O2: { value: { merchant_name: "O2 Mobiles" } },
