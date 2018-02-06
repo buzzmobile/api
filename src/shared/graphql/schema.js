@@ -2,7 +2,8 @@ import {
     GraphQLInt,
     GraphQLObjectType,
     GraphQLSchema,
-    GraphQLList
+    GraphQLList,
+    GraphQLString
 } from "graphql";
 
 import { DealType } from "./types";
@@ -31,6 +32,16 @@ const Schema = new GraphQLSchema({
                         type: GraphQLInt
                     }
                 }
+            },
+            getDealById: {
+                description: "get a deal by its id",
+                type: DealType,
+                args: { 
+                    id: {
+                        type: GraphQLString
+                    }
+                }
+
             },
             allDealsFiltered: {
                 description: "all deals by filters",
