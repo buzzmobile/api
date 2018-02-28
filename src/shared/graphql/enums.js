@@ -87,6 +87,14 @@ export const ProductVersionNameFilterEnum = new GraphQLEnumType({
         Xcover4DualSIM :{ value: { "Telcos_device_product_version_json.product_version_name":  "Xcover 4 Dual SIM" } },
         S8Plus:{ value: { "Telcos_device_product_version_json.product_version_name":  "S8 Plus" } },
         S8:{ value: { "Telcos_device_product_version_json.product_version_name":  "S8" } },
+        S9Plus:{ value: { "Telcos_device_product_version_json.product_version_name":  "S9 Plus" } },
+        S9Any: { value: { 
+            "$or" : [
+                { "Telcos_device_product_version_json.product_version_name": "S9 Plus" }, 
+                { "Telcos_device_product_version_json.product_version_name": "S9" }
+            ]     
+        } },
+        S9:{ value: { "Telcos_device_product_version_json.product_version_name":  "S9" } },
         S7Edge:{ value: { "Telcos_device_product_version_json.product_version_name":  "S7 Edge" } },
         S7:{ value: { "Telcos_device_product_version_json.product_version_name":  "S7" } },
         S6EdgePlus:{ value: { "Telcos_device_product_version_json.product_version_name":  "S6 Edge Plus" } },
