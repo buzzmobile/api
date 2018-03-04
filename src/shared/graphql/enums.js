@@ -72,7 +72,7 @@ export const ProductVersionNameFilterEnum = new GraphQLEnumType({
                 { "Telcos_device_product_version_json.product_version_name": "8 Plus" }, 
                 { "Telcos_device_product_version_json.product_version_name": "8" }
             ]     
-        } },
+        } }, 
         iPhone7Plus: { value: { "Telcos_device_product_version_json.product_version_name":  "7 Plus" } },
         iPhone7: { value: { "Telcos_device_product_version_json.product_version_name": "7" } },
         iPhoneSE: { value: { "Telcos_device_product_version_json.product_version_name":"SE" } },
