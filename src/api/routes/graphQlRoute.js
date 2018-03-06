@@ -42,6 +42,8 @@ const root = {
         numberOfTexts,
         network,
         merchant,
+        storageSize,
+        colour,
         sortBy = "TCO-Asc"
     }) => {
         const qry = {};
@@ -54,6 +56,8 @@ const root = {
         addFilter(qry, numberOfTexts);
         addFilter(qry, network);
         addFilter(qry, merchant);
+        addFilter(qry, storageSize);
+        addFilter(qry, colour);
         return find(page, qry, sortBy);
     },
     getDealById: async({ id }) => findbyId(id)
