@@ -17,6 +17,8 @@ import {
     NumberOfTextsFilterEnum,
     NetworkFilterEnum,
     MerchantFilterEnum,
+    StorageSizeFilterEnum,
+    ColourFilterEnum,
     SortByEnum
 } from "./enums";
 
@@ -76,6 +78,12 @@ const Schema = new GraphQLSchema({
                     },
                     merchant: {
                         type: MerchantFilterEnum
+                    },
+                    storageSize: {
+                        type: StorageSizeFilterEnum
+                    },
+                    colour: {
+                        type: ColourFilterEnum
                     },
                     sortBy: {
                         type: SortByEnum
