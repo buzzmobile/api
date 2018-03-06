@@ -11,7 +11,7 @@ const app = express.Router();
 
 async function find(page, qry = {}, sort = {}) {
     log({ qry, sort });
-    const pageSize = 10;
+    const pageSize = 21;
     const dbDeals = await db.deals.find(qry, { skip: pageSize * (page - 1), limit: pageSize, sort });
     return addExternalId(dbDeals);
 }
