@@ -1,6 +1,7 @@
 import express from "express";
 import graphqlHTTP from "express-graphql";
 import Hashids from "hashids";
+import util from "util";
 
 const hashids = new Hashids();
 
@@ -25,7 +26,7 @@ async function addExternalId(dbDeals) {
     return dbDeals.map(d => Object.assign({ id: hashids.encodeHex(d._id) }, d));
 }
 
-const log = console.log; //eslint-disable-line no-console
+const log = s => console.log(util.inspect(s, { showHidden: true, depth: null })); //eslint-disable-line no-console
 
 const addFilter = (qry, filterQry) => Object.assign(qry, filterQry);
 
@@ -44,6 +45,7 @@ const root = {
         merchant,
         storageSize,
         colour,
+        mobileData,
         sortBy = "TCO-Asc"
     }) => {
         const qry = {};
@@ -58,6 +60,7 @@ const root = {
         addFilter(qry, merchant);
         addFilter(qry, storageSize);
         addFilter(qry, colour);
+        addFilter(qry, mobileData);
         return find(page, qry, sortBy);
     },
     getDealById: async({ id }) => findbyId(id)
