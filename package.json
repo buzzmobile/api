@@ -5,9 +5,6 @@
   "main": "./src/web/server/boot.js",
   "author": "harry patel",
   "license": "MIT",
-  "engines": {
-    "node": "9.4.0"
-  },
   "scripts": {
     "postinstall": "gulp build",
     "start": "node ./src/boot.js",
