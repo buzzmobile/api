@@ -16,6 +16,7 @@ db.deals.createIndex({
     "Telcos_network": 1,
     "merchant_name": 1,
     "Telcos_storage_size": 1,
+    "Telcos_inc_data": 1,
     "Telcos_device_features_json.colour" : 1,
 }, 
 { sparse: true, background: true, name: "mainQry" });
