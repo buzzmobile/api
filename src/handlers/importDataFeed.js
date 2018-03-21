@@ -48,6 +48,7 @@ async function saveDeal(dealCsv) {
     const deal = deals[0];
     if (deal) {
         unwrapEmbeddedJsonFields(deal); 
+        convertMobileData(deal);
         return db.deals.update({ aw_deep_link: deal.aw_deep_link }, deal, { upsert: true });
     }
     return Promise.resolve();
@@ -99,6 +100,13 @@ const unwrapEmbeddedJsonFields = deal => {
             }
         }
     });
+};
+
+const convertMobileData = deal => {
+    if (!isNaN(+deal.Telcos_inc_data)) {
+        deal.Telcos_inc_data = +deal.Telcos_inc_data;
+    }
+    return deal;
 };
 
 export const saveDealAsync = saveDeal;

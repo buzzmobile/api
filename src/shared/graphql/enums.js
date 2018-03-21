@@ -4,7 +4,7 @@ export const MerchantCategoryFilterEnum = new GraphQLEnumType({
     name: "MerchantCategoryFilterEnum",
     description: "Possible values for filtering by Merchant Category. To ignore this filter, set to 'Any",
     values: {
-        Any: { value: { } },
+        Any: { value: {} },
         MobilePhone: { value: { merchant_category: "Mobile Phone" } },
         SIMCard: { value: { merchant_category: "SIM Card" } },
         Tablet: { value: { merchant_category: "Tablet" } },
@@ -33,7 +33,7 @@ export const OperatingSystemFilterEnum = new GraphQLEnumType({
     name: "OperatingSystemFilterEnum",
     description: "Possible values for filtering by Operating System. To ignore this filter, set to 'Any' or don't specify it",
     values: {
-        Any: { value: { } },
+        Any: { value: {} },
         Android: { value: { Telcos_operating_system: "Android" } },
         iOS: { value: { Telcos_operating_system: "Apple iOS" } },
         NA: { value: { Telcos_operating_system: "N/A" } },
@@ -48,12 +48,12 @@ export const ContractTypeFilterEnum = new GraphQLEnumType({
     name: "ContractTypeFilterEnum",
     description: "Possible values for filtering by Contract Type. To ignore this filter, set to 'Any' or don't specify it",
     values: {
-        Any: { value: { } },
-        Contract: { value: {  Telcos_contract_type :  "Phone Contract" } },
-        SIMFree: { value: {  Telcos_contract_type :  "SIM/Contract Free" } },
-        BroadBandContract: { value: {  Telcos_contract_type :  "Mobile Broadband Contract" } },
-        PAYG: { value: {  Telcos_contract_type :  "Phone Pre-pay" } },
-        BroadBandPAYG: { value: {  Telcos_contract_type :  "Mobile Broadband Pre-pay" } }
+        Any: { value: {} },
+        Contract: { value: { Telcos_contract_type: "Phone Contract" } },
+        SIMFree: { value: { Telcos_contract_type: "SIM/Contract Free" } },
+        BroadBandContract: { value: { Telcos_contract_type: "Mobile Broadband Contract" } },
+        PAYG: { value: { Telcos_contract_type: "Phone Pre-pay" } },
+        BroadBandPAYG: { value: { Telcos_contract_type: "Mobile Broadband Pre-pay" } }
     }
 });
 
@@ -63,55 +63,59 @@ export const ProductVersionNameFilterEnum = new GraphQLEnumType({
     name: "ProductVersionNameFilterEnum",
     description: "Possible values for filtering by Product Version. To ignore this filter, set to 'Any' or don't specify it",
     values: {
-        Any: { value: { } },
+        Any: { value: {} },
         iPhoneX: { value: { "Telcos_device_product_version_json.product_version_name": "X" } },
-        iPhone8Plus: { value: { "Telcos_device_product_version_json.product_version_name":  "8 Plus" } },
+        iPhone8Plus: { value: { "Telcos_device_product_version_json.product_version_name": "8 Plus" } },
         iPhone8: { value: { "Telcos_device_product_version_json.product_version_name": "8" } },
-        iPhone8Any: { value: { 
-            "$or" : [
-                { "Telcos_device_product_version_json.product_version_name": "8 Plus" }, 
-                { "Telcos_device_product_version_json.product_version_name": "8" }
-            ]     
-        } }, 
-        iPhone7Plus: { value: { "Telcos_device_product_version_json.product_version_name":  "7 Plus" } },
+        iPhone8Any: {
+            value: {
+                "$or": [
+                    { "Telcos_device_product_version_json.product_version_name": "8 Plus" },
+                    { "Telcos_device_product_version_json.product_version_name": "8" }
+                ]
+            }
+        },
+        iPhone7Plus: { value: { "Telcos_device_product_version_json.product_version_name": "7 Plus" } },
         iPhone7: { value: { "Telcos_device_product_version_json.product_version_name": "7" } },
-        iPhoneSE: { value: { "Telcos_device_product_version_json.product_version_name":"SE" } },
-        iPhone6sPlus: { value: { "Telcos_device_product_version_json.product_version_name":  "6s Plus" } },
-        iPhone6s: { value: { "Telcos_device_product_version_json.product_version_name":"6s" } },
+        iPhoneSE: { value: { "Telcos_device_product_version_json.product_version_name": "SE" } },
+        iPhone6sPlus: { value: { "Telcos_device_product_version_json.product_version_name": "6s Plus" } },
+        iPhone6s: { value: { "Telcos_device_product_version_json.product_version_name": "6s" } },
         iPhone6: { value: { "Telcos_device_product_version_json.product_version_name": "6" } },
-        iPhone5s: { value: { "Telcos_device_product_version_json.product_version_name":"5s" } },
-        iPhone5c: { value: { "Telcos_device_product_version_json.product_version_name":"5c" } },
+        iPhone5s: { value: { "Telcos_device_product_version_json.product_version_name": "5s" } },
+        iPhone5c: { value: { "Telcos_device_product_version_json.product_version_name": "5c" } },
         iPhone5: { value: { "Telcos_device_product_version_json.product_version_name": "5" } },
         iPhone4s: { value: { "Telcos_device_product_version_json.product_version_name": "4s" } },
         iPhone4: { value: { "Telcos_device_product_version_json.product_version_name": "4" } },
-        Xcover4DualSIM :{ value: { "Telcos_device_product_version_json.product_version_name":  "Xcover 4 Dual SIM" } },
-        S8Plus:{ value: { "Telcos_device_product_version_json.product_version_name":  "S8 Plus" } },
-        S8:{ value: { "Telcos_device_product_version_json.product_version_name":  "S8" } },
-        S9:{ value: { "Telcos_device_product_version_json.product_version_name":  "S9" } },
-        S9Plus:{ value: { "Telcos_device_product_version_json.product_version_name":  "S9 Plus" } },
-        S9Any: { value: { 
-            "$or" : [
-                { "Telcos_device_product_version_json.product_version_name": "S9 Plus" }, 
-                { "Telcos_device_product_version_json.product_version_name": "S9" }
-            ]     
-        } },
-        S7Edge:{ value: { "Telcos_device_product_version_json.product_version_name":  "S7 Edge" } },
-        S7:{ value: { "Telcos_device_product_version_json.product_version_name":  "S7" } },
-        S6EdgePlus:{ value: { "Telcos_device_product_version_json.product_version_name":  "S6 Edge Plus" } },
-        S6Edge:{ value: { "Telcos_device_product_version_json.product_version_name":  "S6 Edge" } },
-        S6:{ value: { "Telcos_device_product_version_json.product_version_name":  "S6" } },
-        S5Mini:{ value: { "Telcos_device_product_version_json.product_version_name":  "S5 Mini" } },
-        S3Mini:{ value: { "Telcos_device_product_version_json.product_version_name":  "S3 Mini" } },
-        Note8:{ value: { "Telcos_device_product_version_json.product_version_name":  "Note 8" } },
-        J5:{ value: { "Telcos_device_product_version_json.product_version_name":  "J5" } },
-        J5_2017:{ value: { "Telcos_device_product_version_json.product_version_name":  "J5 (2017)" } },
-        J5_2016:{ value: { "Telcos_device_product_version_json.product_version_name":  "J5 (2016)" } },
-        J3_2017:{ value: { "Telcos_device_product_version_json.product_version_name":  "J3 (2017)" } },
-        J3_2016:{ value: { "Telcos_device_product_version_json.product_version_name":  "J3 (2016)" } },
-        A5_2017:{ value: { "Telcos_device_product_version_json.product_version_name":  "A5 2017" } },
-        A5_2016:{ value: { "Telcos_device_product_version_json.product_version_name":  "A5 2016" } },
-        A3_2017:{ value: { "Telcos_device_product_version_json.product_version_name":  "A3 2017" } },
-        A3_2016:{ value: { "Telcos_device_product_version_json.product_version_name":  "A3 2016" } }
+        Xcover4DualSIM: { value: { "Telcos_device_product_version_json.product_version_name": "Xcover 4 Dual SIM" } },
+        S8Plus: { value: { "Telcos_device_product_version_json.product_version_name": "S8 Plus" } },
+        S8: { value: { "Telcos_device_product_version_json.product_version_name": "S8" } },
+        S9: { value: { "Telcos_device_product_version_json.product_version_name": "S9" } },
+        S9Plus: { value: { "Telcos_device_product_version_json.product_version_name": "S9 Plus" } },
+        S9Any: {
+            value: {
+                "$or": [
+                    { "Telcos_device_product_version_json.product_version_name": "S9 Plus" },
+                    { "Telcos_device_product_version_json.product_version_name": "S9" }
+                ]
+            }
+        },
+        S7Edge: { value: { "Telcos_device_product_version_json.product_version_name": "S7 Edge" } },
+        S7: { value: { "Telcos_device_product_version_json.product_version_name": "S7" } },
+        S6EdgePlus: { value: { "Telcos_device_product_version_json.product_version_name": "S6 Edge Plus" } },
+        S6Edge: { value: { "Telcos_device_product_version_json.product_version_name": "S6 Edge" } },
+        S6: { value: { "Telcos_device_product_version_json.product_version_name": "S6" } },
+        S5Mini: { value: { "Telcos_device_product_version_json.product_version_name": "S5 Mini" } },
+        S3Mini: { value: { "Telcos_device_product_version_json.product_version_name": "S3 Mini" } },
+        Note8: { value: { "Telcos_device_product_version_json.product_version_name": "Note 8" } },
+        J5: { value: { "Telcos_device_product_version_json.product_version_name": "J5" } },
+        J5_2017: { value: { "Telcos_device_product_version_json.product_version_name": "J5 (2017)" } },
+        J5_2016: { value: { "Telcos_device_product_version_json.product_version_name": "J5 (2016)" } },
+        J3_2017: { value: { "Telcos_device_product_version_json.product_version_name": "J3 (2017)" } },
+        J3_2016: { value: { "Telcos_device_product_version_json.product_version_name": "J3 (2016)" } },
+        A5_2017: { value: { "Telcos_device_product_version_json.product_version_name": "A5 2017" } },
+        A5_2016: { value: { "Telcos_device_product_version_json.product_version_name": "A5 2016" } },
+        A3_2017: { value: { "Telcos_device_product_version_json.product_version_name": "A3 2017" } },
+        A3_2016: { value: { "Telcos_device_product_version_json.product_version_name": "A3 2016" } }
     }
 });
 // db.runCommand ( { distinct: "deals", key: "Telcos_device_product_json.product_brand", query: { } } )
@@ -149,7 +153,7 @@ export const ManufacturerFilterEnum = new GraphQLEnumType({
         Bragi: { value: { "Telcos_device_product_json.product_brand": "Bragi" } },
         Vodafone: { value: { "Telcos_device_product_json.product_brand": "Vodafone" } },
         Honor: { value: { "Telcos_device_product_json.product_brand": "Honor" } },
-        Monqi: { value: { "Telcos_device_product_json.product_brand": "Monqi"  } }
+        Monqi: { value: { "Telcos_device_product_json.product_brand": "Monqi" } }
     }
 });
 
@@ -157,8 +161,8 @@ export const TalkMinutesFilterEnum = new GraphQLEnumType({
     name: "MobileDataFilterEnum",
     description: "Possible values for filtering by Talk Minutes. To ignore this filter, set to 'Any' or don't specify it",
     values: {
-        Any: { value: { } },
-        Unlimited: { value: {  Telcos_inc_minutes :  "UNLIMITED" } }
+        Any: { value: {} },
+        Unlimited: { value: { Telcos_inc_minutes: "UNLIMITED" } }
     }
 });
 
@@ -166,8 +170,8 @@ export const NumberOfTextsFilterEnum = new GraphQLEnumType({
     name: "NumberOfTextsFilterEnum",
     description: "Possible values for filtering by Texts. To ignore this filter, set to 'Any' or don't specify it",
     values: {
-        Any: { value: { } },
-        Unlimited: { value: {  Telcos_inc_texts :  "UNLIMITED" } }
+        Any: { value: {} },
+        Unlimited: { value: { Telcos_inc_texts: "UNLIMITED" } }
     }
 });
 
@@ -176,7 +180,7 @@ export const NetworkFilterEnum = new GraphQLEnumType({
     name: "NetworkFilterEnum",
     description: "Possible values for filtering by Network. To ignore this filter, set to 'Any' or don't specify it",
     values: {
-        Any: { value: { } },
+        Any: { value: {} },
         O2: { value: { Telcos_network: "O2" } },
         NoNetwork: { value: { Telcos_network: "No Network" } },
         VirginMobile: { value: { Telcos_network: "Virgin Mobile" } },
@@ -194,7 +198,7 @@ export const MerchantFilterEnum = new GraphQLEnumType({
     name: "MerchantFilterEnum",
     description: "Possible values for filtering by Merchant. To ignore this filter, set to 'Any' or don't specify it",
     values: {
-        Any: { value: { } },
+        Any: { value: {} },
         O2: { value: { merchant_name: "O2 Mobiles" } },
         BuyMobilesNet: { value: { merchant_name: "buymobiles.net" } },
         MobilesCoUk: { value: { merchant_name: "Mobiles.co.uk" } },
@@ -212,13 +216,15 @@ export const StorageSizeFilterEnum = new GraphQLEnumType({
     name: "StorageSizeFilterEnum",
     description: "Possible values for filtering by Storage Size. To ignore this filter, set to 'Any' or don't specify it",
     values: {
-        Any: { value: { } },
-        GB0: { value: { 
-            "$or" : [
-                { "Telcos_storage_size": "0" }, 
-                { "Telcos_storage_size": "0GB" }
-            ]     
-        } },
+        Any: { value: {} },
+        GB0: {
+            value: {
+                "$or": [
+                    { "Telcos_storage_size": "0" },
+                    { "Telcos_storage_size": "0GB" }
+                ]
+            }
+        },
         GB1: { value: { Telcos_storage_size: "1GB" } },
         GB3: { value: { Telcos_storage_size: "3GB" } },
         GB4: { value: { Telcos_storage_size: "4GB" } },
@@ -237,7 +243,7 @@ export const ColourFilterEnum = new GraphQLEnumType({
     name: "ColourFilterEnum",
     description: "Possible values for filtering by Colour. To ignore this filter, set to 'Any' or don't specify it",
     values: {
-        Any: { value: { } },
+        Any: { value: {} },
         Aluminium_Silver: { value: { "Telcos_device_features_json.colour": "Aluminium Silver" } },
         Aluminium: { value: { "Telcos_device_features_json.colour": "Aluminium" } },
         Amazing_Silver: { value: { "Telcos_device_features_json.colour": "Amazing Silver" } },
@@ -374,6 +380,25 @@ export const ColourFilterEnum = new GraphQLEnumType({
         White_Pearl: { value: { "Telcos_device_features_json.colour": "White Pearl" } },
         Yellow: { value: { "Telcos_device_features_json.colour": "Yellow" } },
         White: { value: { "Telcos_device_features_json.colour": "White" } }
+    }
+});
+
+
+// db.runCommand ( { distinct: "deals", key: "Telcos_inc_data", query: { } } )
+export const MobileDataEnum = new GraphQLEnumType({
+    name: "MobileDataEnum",
+    description: "Possible values for filtering by Mobile Data (GB). To ignore this filter, set to 'Any' or don't specify it",
+    values: {
+        Any: { value: {} },
+        Unlimited: { value: { "Telcos_inc_data": "UNLIMITED" } },
+        AtLeast2GB: {
+            value: {
+                "$or": [
+                    { "Telcos_inc_data": { $gte: 2000 } },
+                    { "Telcos_inc_data": { $eq: "UNLIMITED" } }
+                ]
+            }
+        }
     }
 });
 
