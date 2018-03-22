@@ -37,6 +37,7 @@ async function importDataFeed(useSmallFile) {
         .on("error", e => { throw new Error(e); })
         .on("end", () => { 
             console.log("processing completed. Including the header and empty rows, the total number of rows processed was:", lineNr); 
+            console.log("Note that only relevant deals have been imported", lineNr); 
             return Promise.resolve(); 
         })
     );
@@ -49,10 +50,17 @@ async function saveDeal(dealCsv) {
     if (deal) {
         unwrapEmbeddedJsonFields(deal); 
         convertMobileData(deal);
-        return db.deals.update({ aw_deep_link: deal.aw_deep_link }, deal, { upsert: true });
+        if (shouldImport(deal)){
+            return db.deals.update({ aw_deep_link: deal.aw_deep_link }, deal, { upsert: true });
+        }
     }
     return Promise.resolve();
 }
+
+const shouldImport = deal => {
+    const modelsToImport = ["X", "S9", "S9 Plus"];
+    return modelsToImport.includes(deal.Telcos_device_product_version_json.product_version_name);
+};
 
 const logProgress = lineNr => {
     if (lineNr % 10000 === 0) {
